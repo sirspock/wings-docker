@@ -38,7 +38,7 @@ ENV WINGS_MODE='dind'
 RUN apt-get update && apt-get install -y git default-jdk
 RUN mkdir -p /wings-src/wings/
 WORKDIR /wings-src
-ADD ../ wings/
+RUN git clone -b dev https://github.com/sirspock/wings
 WORKDIR /wings-src/wings
 RUN _JAVA_OPTIONS=-Djdk.net.URLClassPath.disableClassPathURLCheck=true mvn package
 
